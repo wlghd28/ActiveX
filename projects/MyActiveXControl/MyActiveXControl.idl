@@ -1,0 +1,51 @@
+﻿// MyActiveXControl.idl: ActiveX 컨트롤 프로젝트의 형식 라이브러리 소스입니다.
+
+// 이 파일은 MIDL 컴파일러 도구에 의해 처리되어
+// MyActiveXControl.ocx에서 리소스가 되는 형식 라이브러리(MyActiveXControl.tlb)를
+// MyActiveXControl.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(3f3e321f-b158-46d5-a66b-57dd267d94c0), version(1.0),
+  control ]
+library MyActiveXControlLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CMyActiveXControlCtrl의 기본 디스패치 인터페이스
+	[ 
+		uuid(21ea13a1-0da3-4bee-8ece-33c2dc74dfbf)
+	]
+	dispinterface _DMyActiveXControl
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  CMyActiveXControlCtrl의 이벤트 디스패치 인터페이스
+
+	[ 
+		uuid(a2645bdb-031c-4bc5-a37a-3e67de9acc46)
+	]
+	dispinterface _DMyActiveXControlEvents
+	{
+		properties:
+			//  이벤트 인터페이스에 속성이 없습니다.
+
+		methods:
+	};
+
+	//  CMyActiveXControlCtrl에 대한 클래스 정보
+	[
+		uuid(578e6cd4-cde5-4f06-9284-064ad3fd19d4)
+	]
+	coclass MyActiveXControl
+	{
+		[default] dispinterface _DMyActiveXControl;
+		[default, source] dispinterface _DMyActiveXControlEvents;
+	};
+
+};
